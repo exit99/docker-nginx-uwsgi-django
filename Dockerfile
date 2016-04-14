@@ -1,8 +1,8 @@
 FROM python:3.5-alpine
 
-MAINTAINER "Hivelocity"
-LABEL project="www.hivelocity.net"
-LABEL version = "0.0.0"
+MAINTAINER "Zach Kazanski"
+LABEL project="docker-nginx-uwsgi-django"
+LABEL version = "1.0.0"
 LABEL author="Zach Kazanski"
 LABEL author_email="kazanski.zachary@gmail.com"
 
@@ -19,17 +19,18 @@ RUN apk add --update \
   chown -R nginx:www-data /var/lib/nginx
 
 RUN pip install https://github.com/unbit/uwsgi/archive/uwsgi-2.0.zip#egg=uwsgi
-RUN pip install django
 
 ADD . /app
 WORKDIR /app
 
+RUN pip install django
+
 RUN mkdir /etc/nginx/sites-enabled
 RUN rm /etc/nginx/nginx.conf
-RUN ln -s /app/nginx.conf /etc/nginx/
-RUN ln -s /app/nginx-app.conf /etc/nginx/sites-enabled/
+RUN ln -s /app/nginx/nginx.conf /etc/nginx/
+RUN ln -s /app/nginx/nginx-app.conf /etc/nginx/sites-enabled/
 RUN rm /etc/supervisord.conf
-RUN ln -s /app/supervisord.conf /etc/
+RUN ln -s /app/supervisord/supervisord.conf /etc/
 
 EXPOSE 80
 
