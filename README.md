@@ -17,24 +17,23 @@ Quick Start
 4. Check out your site `curl $(docker-machine ip)`.
 
 
-Adding your own Django Application
-==================================
+## Adding your own Django Application
 
 1. Remove the initial django project: `rm -r project`.
 
 2. Create your own django project: `django-admin.py startproject myproject`. 
 
-3. Update `uwsgi/uwsgi.ini` to point at your new project: `sed -i 's/project/myproject/g' uwsgi/uwsgi.ini`.
+3. Update `uwsgi/uwsgi.ini` to point at your new project: `sed -i '' 's/project/myproject/g' uwsgi/uwsgi.ini`.
 
 
-Installing from a Requirements File
-===================================
+## Installing from a Requirements File
 
-1. Place a `requirements.txt` file in the main directory.
+1. Place a `reqs.txt` file in the main directory.
+
+2. Install the requirements via the `Dockerfile`: `sed -i '' 's/pip install django/pip install -r \/app\/reqs.txt/g' Dockerfile`.
 
 
-Python Version
-==============
+## Python Version
 
 Defaults to `python3.5`.
 You can change this line `FROM python:3.5-alpine` to `FROM python:2.7-apline` in the `Dockerfile` to use `python2.7` version.
