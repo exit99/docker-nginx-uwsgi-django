@@ -8,7 +8,7 @@ This image contains configuration for basic **nginx**, **uwsgi**, and **django**
 Quick Start
 ===========
 
-1. Clone the repo: `git clone REPO`.
+1. Clone the repo: `git clone https://github.com/Kazanz/docker-nginx-uwsgi-django.git`.
 
 2. Build the image: `docker build -t nginx-uwsgi-django .`.
 
