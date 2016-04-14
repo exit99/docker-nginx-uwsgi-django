@@ -1,0 +1,48 @@
+# python
+*.py[co]
+
+# vim
+*.sw[op]
+
+# mac
+._*
+__MACOSX
+.DS_Store
+
+# win
+*~
+Thumbs.db
+desktop.ini
+
+# django
+/hivelocitysite/settings/local.py
+
+# vagrant
+.vagrant
+
+# stuff that pip might somehow create
+/include/
+/src/
+/build/
+
+# rope
+.ropeproject
+
+# logs
+/logs
+
+# source maps
+*.map
+
+# compiled static assets
+/public/
+/static/less/**/*.css
+/static/less/*.css
+/static/coffee/**/*.js
+static/coffee/*.js
+
+# coverage
+.coverage
+.coverage_html
+.idea/
+node_modules/
