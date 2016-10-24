@@ -25,6 +25,7 @@ WORKDIR /app
 
 RUN pip install django
 
+RUN mkdir -p /run/nginx
 RUN mkdir /etc/nginx/sites-enabled
 RUN rm /etc/nginx/nginx.conf
 RUN ln -s /app/nginx/nginx.conf /etc/nginx/
